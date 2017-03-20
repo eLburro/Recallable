@@ -1,0 +1,46 @@
+body {
+    background: url("../img/main_bg.jpg") no-repeat center 0;
+    background-color: rgb(240, 248, 255);
+}
+
+.mobile-form {
+    max-width: 360px;
+    margin-top: 50px;
+}
+
+form {
+    background-color: rgba(240, 248, 255, 0.8);
+    padding: 10px 30px;
+}
+
+/*** COMPONENTS ***/
+.spanner {
+    line-height: 0.5;
+    text-align: center;
+}
+.spanner span {
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    color: #000000;
+    font-size: 1.2em;
+}
+
+.spanner span:before,
+.spanner span:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid #000000;
+    top: 0;
+    width: 60px;
+}
+
+.spanner span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+.spanner span:after {
+    left: 100%;
+    margin-left: 15px;
+}

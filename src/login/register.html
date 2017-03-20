@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recallable - Register</title>
+
+    <link href="../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../css/main.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="container mobile-form">
+    <h1>Register</h1>
+
+    <form class="form-horizontal" action="register.php" method="post">
+        <div class="form-group">
+            <label for="inputUsername">Username</label>
+            <input type="text" class="form-control" id="inputUsername" name="ff_username" placeholder="Username">
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" name="ff_email" placeholder="Email">
+        </div>
+
+        <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control" id="inputPassword" name="ff_password" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <label for="inputPassword2">Password Confirmation</label>
+            <input type="password" class="form-control" id="inputPassword2" name="ff_password2" placeholder="Password Confirmation">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger btn-block">Register Me</button>
+        </div>
+    </form>
+
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../libs/bootstrap/js/bootstrap.min.js"></script>
+
+<script>
+$('form').on('submit', function(event){
+    if ($('#inputPassword').val() === '' || $('#inputPassword').val() !== $('#inputPassword2').val()){
+        $('#inputPassword2').parent().addClass('has-error');
+
+        event.preventDefault();
+        return false;
+
+    } else {
+        return true;
+    }
+});
+</script>
+
+</body>
+</html>
