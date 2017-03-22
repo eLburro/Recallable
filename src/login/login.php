@@ -13,11 +13,11 @@ if ($res = $mysqli->query($sql)) {
        
         if (password_verify($pw, $hash)) {
             // log in Session!
-            header("Location: http://recallable.der-esel.ch");
+            header("Location: http://recallable.der-esel.ch/home.html");
             die();
 
         } else {
-            header("Location: http://recallable.der-esel.ch?msg=3");
+            header("Location: http://recallable.der-esel.ch?msg=2");
             die();
         }
         
