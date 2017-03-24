@@ -1,20 +1,31 @@
-Chooser = function () {
-    var DIR_PREF_PATH = '../img/preferences/';
-    var DIR_ICON_PATH = '../img/icons/';
-    var MAX_IMG = 4;
+Swiper = function (trials, scorerObj) {
+    var DIR_PREF_PATH = 'img/preferences/';
+    var DIR_ICON_PATH = 'img/icons/';
     
     var mc;
     var el;
     var img;
-    var currentImg = 1;
+    var imgText;
 
-    var init = function () {
-        el = document.getElementById('chooser');
+    var scorerObj;
+
+    var max_trials = 0;
+    var currentTrialNr = 0;
+    var currentTrial;
+    var trialsArray = [];
+
+    var init = function (trials, scorerObj) {
+        el = document.getElementById('swiper');
         mc = new Hammer(el);
+
+        this.scorerObj = scorerObj;
+        trialsArray = trials;
+        max_trials = trials.length;
 
         attachEvents();
         renderNodes();
-        displayImg(currentImg);
+        setCurrentTrial();
+        displayImg();
     };
 
     var attachEvents = function () {
@@ -23,17 +34,25 @@ Chooser = function () {
         });
     };
 
+    var setCurrentTrial = function () {
+        currentTrial = trials[currentTrialNr];
+    };
+
     var renderNodes = function () {
         el.innerHTML = '';
         var container = document.createElement('div');
-        container.setAttribute('class', 'chooser-container');
+        container.setAttribute('class', 'swiper-container');
         el.append(container);
-        
+
+        imgText = document.createElement('span');
+        imgText.setAttribute('class', 'swiper-imgText');
+        container.append(imgText);
+
         img = document.createElement('img');
         container.append(img);
         
         var footer = document.createElement('div');
-        footer.setAttribute('class', 'chooser-footer');
+        footer.setAttribute('class', 'swiper-footer');
         
         var btnNo = document.createElement('img');
         btnNo.setAttribute('class', 'img-btn');
@@ -54,36 +73,43 @@ Chooser = function () {
         el.append(footer);
         
         var progressBarLeft = document.createElement('div');
-        progressBarLeft.setAttribute('class', 'chooser-progress');
+        progressBarLeft.setAttribute('class', 'swiper-progress');
         progressBarLeft.setAttribute('style', 'left:0;');
         el.append(progressBarLeft);
         
         var progressBarRight = document.createElement('div');
-        progressBarRight.setAttribute('class', 'chooser-progress');
+        progressBarRight.setAttribute('class', 'swiper-progress');
         progressBarRight.setAttribute('style', 'right:0;');
         el.append(progressBarRight);
     };
     
-    var displayImg = function (imgNr) {
-        img.setAttribute('src', DIR_PREF_PATH + imgNr + '.png');
+    var displayImg = function () {
+        var trialId = currentTrial.id;
+        var trialDesc = currentTrial.desc;
+        imgText.innerHTML = trialDesc;
+        img.setAttribute('src', DIR_PREF_PATH + trialId + '.png');
     };
 
     var showNext = function () {
+        scorerObj.setScores(currentTrial.scores);
+
         if (updateProgress()) {
-            currentImg++;
-            displayImg(currentImg);
+            currentTrialNr++;
+            setCurrentTrial();
+            displayImg();
 
         } else {
-            // TODO: Done!! END process!!!
+            // TODO: Done!! END process!!! and send scores to machine learning
+            console.log(scorerObj.getActivityScores());
         }
     };
 
     var updateProgress = function () {
-        if (MAX_IMG === currentImg) {
+        if (max_trials === (currentTrialNr + 1)) {
             return false;
         } else {
-            var progress = 100 / MAX_IMG * currentImg;
-            var bars = $('.chooser-progress');
+            var progress = 100 / max_trials * (currentTrialNr + 1);
+            var bars = $('.swiper-progress');
             bars.each(function(){
                $(this).css('height', progress + '%');
             });
@@ -92,5 +118,5 @@ Chooser = function () {
         }
     };
 
-    init();
+    init(trials, scorerObj);
 };
