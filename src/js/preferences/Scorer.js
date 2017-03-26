@@ -9,12 +9,9 @@ Scorer = function () {
     };
 
     this.setScores = function (scores) {
-        // TODO - not working as intended
-        $.map(activityScores, function (n, i) {
+        activityScores = $.map(activityScores, function (n, i) {
             return (n + scores[i]);
         });
-        console.log(scores);
-        console.log(activityScores);
     };
 
     this.getActivityScores = function () {

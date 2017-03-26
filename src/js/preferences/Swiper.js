@@ -35,7 +35,7 @@ Swiper = function (trials, scorerObj) {
     };
 
     var setCurrentTrial = function () {
-        currentTrial = trials[currentTrialNr];
+        currentTrial = trialsArray[currentTrialNr];
     };
 
     var renderNodes = function () {
@@ -92,7 +92,7 @@ Swiper = function (trials, scorerObj) {
 
     var showNext = function () {
         scorerObj.setScores(currentTrial.scores);
-
+        
         if (updateProgress()) {
             currentTrialNr++;
             setCurrentTrial();
@@ -100,6 +100,9 @@ Swiper = function (trials, scorerObj) {
 
         } else {
             // TODO: Done!! END process!!! and send scores to machine learning
+            el.innerHTML = '';
+            mc.off('swipeleft swiperight');
+            console.log('Done!');
             console.log(scorerObj.getActivityScores());
         }
     };
