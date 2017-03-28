@@ -26,7 +26,7 @@ if (isset($_GET['msg'])) {
         <![endif]-->
     </head>
 
-    <body>
+    <body class="bg-main">
 
         <div class="container mobile-form">
 
