@@ -33,7 +33,7 @@ if (isset($_GET['msg'])) {
             <h1>Recallable</h1>
 
             <form class="form-horizontal" action="login/login.php" method="post">
-<?php if ($msgNr == '1') { ?>
+                <?php if ($msgNr == '1') { ?>
                     <div class="alert alert-success">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         <h4>Success!</h4>
@@ -41,13 +41,21 @@ if (isset($_GET['msg'])) {
                     </div>
                 <?php } ?>
 
-<?php if ($msgNr == '2') { ?>
+                <?php if ($msgNr == '2') { ?>
                     <div class="alert alert-danger">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         <h4>Error!</h4>
                         Email or password is wrong!
                     </div>
-<?php } ?>
+                <?php } ?>
+
+                <?php if ($msgNr == '3') { ?>
+                    <div class="alert alert-info">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <h4>Info!</h4>
+                        Your session is not valid anymore, please log in again!
+                    </div>
+                <?php } ?>
 
                 <div class="form-group">
                     <label for="inputEmail">Email</label>

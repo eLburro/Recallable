@@ -1,0 +1,21 @@
+{	
+	"activities": [
+		{
+			"id": 1,
+			"name": "Activity 2 Name",
+			"desc": "Jump from 10m into a swimming pool",
+			"tags": "competition|shopping",
+			"duration": 0,
+			"weather": 0
+			
+		},
+		{
+			"id": 2,
+			"name": "Activity 2 Name",
+			"desc": "Stop 5mins for a street music show",
+			"tags": "competition",
+			"duration": 1,
+			"weather": 1
+		}
+	]
+}

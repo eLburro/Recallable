@@ -20,6 +20,16 @@ form {
     padding: 10px 30px;
 }
 
+.overlay {
+    display: none;
+    position:fixed;
+    bottom: 0;
+}
+
+.overlay img {
+    width: 100%;
+}
+
 /*** SPANNER ***/
 .spanner {
     line-height: 0.5;
@@ -117,6 +127,29 @@ form {
     to { background-color: rgba(240, 248, 255, 0.8); }
 }
 
+.swiper-label {
+    display: none;
+    padding-top: 14px;
+    font-size: 1.6em;
+    font-weight: bold;
+    width: 150px;
+    height: 60px;
+    position: absolute;
+    top: 60px;
+}
+
+.swiper-label-yes {
+    color: #45CF90;
+    border: 4px solid #45CF90;
+    right: 70px;
+}
+
+.swiper-label-no {
+    color: #FC6B68;
+    border: 4px solid #FC6B68;
+    left: 70px;
+}
+
 /*** CHOOSER ***/
 
 #chooser {
@@ -126,16 +159,191 @@ form {
 
 #pin {
     width: 50px;
-    height: 50px;
+    height: 64px;
     cursor: move;
     position: absolute;
-    background: url("../img/icons/pin.png") no-repeat center center;
-    bottom: 10px;
+    background: url("../img/icons/boy-pin.png") no-repeat center center;
+    bottom: 74px;
     left: 10px;
+    margin-bottom: -64px;
 }
 
-#drop-zone {
+.drag-stop {
+    pointer-events: none;
 }
 
-#drop-zone img {
+body {
+    background-color: #C6DFAB;
+}
+
+#zone-text-container {
+    background: none;
+}
+
+#zone-text-container #bar img {
+    position: absolute;
+    top: 50px;
+    left: 115px;
+    width: 220px;
+}
+
+#zone-text-container #bar span {
+    position: absolute;
+    color: #949692;
+    top: 46px;
+    margin: 0;
+}
+
+#zone-text-container #bar .bar-text-left {
+    left: 25px;
+}
+
+#zone-text-container #bar .bar-text-right {
+    right: 30px;
+}
+
+#zone-text-container .zone-container {
+    width: 100%;
+    height: 200px;
+    padding-top: 70px;
+    text-align: center; 
+    font-size: 1.5em;
+    background: url('../img/moods/giftbox.png') no-repeat center 0;
+}
+
+#zone-text-container h5 {
+    margin: 5px;
+    font-size: 1em;
+}
+
+#zone-text-container span {
+    color: #C6DFAB;
+    margin: 5px;
+    display: block;
+}
+
+#zone-text-container .zone-button {
+    display: inline;
+    color: #C6DFAB;
+    border-color: #C6DFAB;
+    width: 100px;
+    background: none;
+    font-size: 1.2em;
+    border-width: 2px;
+}
+
+body.zone-A {
+    background-color: #C6DFAB;
+}
+
+body.zone-A #zone-text-container span{
+    color: #C6DFAB;
+}
+
+body.zone-A #zone-text-container .zone-button{
+    color: #C6DFAB;
+    border-color: #C6DFAB;
+}
+
+body.zone-B {
+    background-color: #F47070;
+}
+
+body.zone-B #zone-text-container span{
+    color: #F47070;
+}
+
+body.zone-B #zone-text-container .zone-button{
+    color: #F47070;
+    border-color: #F47070;
+}
+
+body.zone-C  {
+    background-color: #EB86B4;
+}
+
+body.zone-C #zone-text-container span{
+    color: #EB86B4;
+}
+
+body.zone-C #zone-text-container .zone-button{
+    color: #EB86B4;
+    border-color: #EB86B4;
+}
+
+body.zone-D {
+    background-color: #C58CCA;
+}
+
+body.zone-D #zone-text-container span{
+    color: #C58CCA;
+}
+
+body.zone-D #zone-text-container .zone-button{
+    color: #C58CCA;
+    border-color: #C58CCA;
+}
+
+body.zone-E {
+    background-color: #C5BEF0;
+}
+
+body.zone-E #zone-text-container span{
+    color: #C5BEF0;
+}
+
+body.zone-E #zone-text-container .zone-button{
+    color: #C5BEF0;
+    border-color: #C5BEF0;
+}
+
+body.zone-F {
+    background-color: #86AEF1;
+}
+
+body.zoneF #zone-text-container span{
+    color: #86AEF1;
+}
+
+body.zoneF #zone-text-container .zone-button{
+    color: #86AEF1;
+    border-color: #86AEF1;
+}
+
+/*** PROFILE ***/
+.profile {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 120px;
+}
+
+.profile .profile-img {
+    border-radius: 50%;
+}
+
+.profile .spanner {
+    margin-top: -120px;
+}
+
+.profile .spanner span:before,
+.profile .spanner span:after {
+    height: 14px;
+}
+
+.profile .spanner span:before {
+    margin-right: 2px;
+}
+
+.profile .spanner span:after {
+    margin-left: 2px;
+}
+
+/*** MEMORIES ***/
+.memories {
+    overflow: auto;
+    height: 100%;
+}
+
+.memories img {
+    width: 100%;
 }

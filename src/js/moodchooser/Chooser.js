@@ -6,31 +6,31 @@ Chooser = function () {
     var firstX;
     var firstY;
     var zoneBounds = {
-            'x': 2,
-            'y': -6,
-            'w': 0,
-            'h': 0
-        };
-    var activeZone;
-    
+        'x': 2,
+        'y': -6,
+        'w': 0,
+        'h': 0
+    };
+
+    var moodImg;
+    var moodMap;
+    var zoneText;
+    var bar;
+
     var init = function () {
         pin = document.getElementById('pin');
         dropZone = document.getElementById('drop-zone');
-        
-        renderBackground();
-        attachEvents();
-    };
+        moodMap = document.getElementById('moodMap');
+        moodImg = document.getElementById('moodImg');
+        zoneText = document.getElementById('zone-text');
+        bar = $('#bar img');
 
-    var renderBackground = function () {
         var newWidth = $(window).width();
         zoneBounds.w = newWidth - 52;
         zoneBounds.h = newWidth - 44;
-        var newWidthStr = 'width:' + newWidth + 'px;';
-        
-        var img = document.createElement('img');
-        img.setAttribute('style', newWidthStr);
-        img.setAttribute('src', 'img/moodArea.png');
-        dropZone.append(img);
+
+        attachEvents();
+        //displayOverlay();
     };
 
     var attachEvents = function () {
@@ -67,6 +67,11 @@ Chooser = function () {
             }, false);
 
         }, false);
+
+        moodMap.onclick = function (e) {
+            var zone = e.target.id;
+            //moodImg.setAttribute('src', 'img/moods/' + zone + '.png');
+        };
     };
 
     var dragIt = function (e) {
@@ -89,27 +94,108 @@ Chooser = function () {
     var moveIt = function (newDim) {
         var newX = newDim.x;
         var newY = newDim.y;
+        var inBound = false;
 
         if (newX >= zoneBounds.x && newX <= (zoneBounds.x + zoneBounds.w)) {
             pin.style.left = newX + 'px';
+            inBound = true;
         }
 
         if (newY >= zoneBounds.y && newY <= (zoneBounds.y + zoneBounds.h)) {
             pin.style.top = newY + 'px';
+            inBound = true;
         }
-        
-        setActiveZone(newDim);
+
+        if (inBound) {
+            setActiveZone(newDim);
+        }
     };
-    
+
     var setActiveZone = function (pos) {
-        // TODO: hard code some shit
-  
-        // Zone A
-        if (pos.x >= 0 && pos.x <= 0 && pos.y >= 0 && pos.y <= 0) {
-            
-        } else if (false) {
-            
+        var startY = $(window).height() - $('#moodImg').height();
+        var posX = pos.x + 25;
+        var posY = 32 + startY + pos.y;
+        pin.classList.add('drag-stop');
+        var zone = document.elementFromPoint(posX, posY);
+        pin.classList.remove('drag-stop');
+
+        if (zone !== undefined && zone !== null) {
+            var zoneId = zone.getAttribute('id');
+            if (zoneId === 'A' || zoneId === 'B' || zoneId === 'C' ||
+                    zoneId === 'D' || zoneId === 'E' || zoneId === 'F' ||
+                    zoneId === 'moodImg') {
+
+                if (zoneId === 'moodImg')
+                    zoneId = 'none';
+                moodImg.setAttribute('src', 'img/moods/' + zoneId + '.png');
+                updateText(zoneId, posX, posY);
+            }
         }
+    };
+
+    var updateText = function (zoneId, posX, posY) {
+        // calculate the distance
+        var a = 25 - posX;
+        var b = 645 - posY;
+        var c = parseInt(Math.sqrt(a * a + b * b) - 180);
+        var distance = (c <= 0) ? 1 : c;
+        distance = (distance >= 200) ? 100 : distance / 2;
+        // this results in a distance between 0.5 and 100
+                
+        var section = 1;
+        if (distance >= 33 && distance < 66) {
+            section = 2;
+        } else if (distance >= 66) {
+            section = 3
+        }
+
+        switch (zoneId) {
+            case 'A':
+                zoneText.innerHTML = 'as usual';
+                bar.attr('src', 'img/moods/bar/A1.png');
+                break;
+            case 'B':
+                zoneText.innerHTML = 'sporty';
+                bar.attr('src', 'img/moods/bar/B' + section + '.png');
+                break;
+            case 'C':
+                zoneText.innerHTML = 'exciting';
+                bar.attr('src', 'img/moods/bar/C' + section + '.png');
+                break;
+            case 'D':
+                zoneText.innerHTML = 'refreshing';
+                bar.attr('src', 'img/moods/bar/D' + section + '.png');
+                break;
+            case 'E':
+                zoneText.innerHTML = 'cosy';
+                bar.attr('src', 'img/moods/bar/E' + section + '.png');
+                break;
+            case 'F':
+                zoneText.innerHTML = 'relaxing';
+                bar.attr('src', 'img/moods/bar/F' + section + '.png');
+                break;
+        }
+        if (zoneId !== 'none') {
+            $('body').attr('class', 'zone-' + zoneId);
+        }
+    };
+
+    var displayOverlay = function () {
+        var toggle = false;
+        var overlayImg = $('.overlay img');
+        var overlay = $('.overlay');
+        overlayImg.attr('src', 'img/overlays/overlay_chooser_1.png');
+        overlay.show();
+        
+        overlay.on('click', function (e) {
+            if (toggle) {
+                $(this).hide();
+                return;
+            } else {
+                overlayImg.attr('src', 'img/overlays/overlay_chooser_2.png');
+                toggle = true;
+            }
+        });
     };
 
     init();

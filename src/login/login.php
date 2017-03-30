@@ -1,4 +1,5 @@
 <?php
+session_start();
 $email = filter_input(INPUT_POST, 'ff_email', FILTER_SANITIZE_EMAIL);
 $pw = filter_input(INPUT_POST, 'ff_password');
 
@@ -13,7 +14,9 @@ if ($res = $mysqli->query($sql)) {
        
         if (password_verify($pw, $hash)) {
             // log in Session!
-            header("Location: http://recallable.der-esel.ch/home.html");
+            $_SESSION['userName'] = $row['user_username'];
+            $_SESSION['userId'] = $row['user_id'];
+            header("Location: http://recallable.der-esel.ch/home.php");
             die();
 
         } else {

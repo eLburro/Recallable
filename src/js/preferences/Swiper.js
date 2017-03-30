@@ -27,6 +27,8 @@ Swiper = function (trials, scorerObj) {
         renderNodes();
         setCurrentTrial();
         displayImg();
+        
+        //displayOverlay();
     };
 
     var attachEvents = function () {
@@ -55,6 +57,16 @@ Swiper = function (trials, scorerObj) {
         img = document.createElement('img');
         img.setAttribute('class', 'img-preference');
         container.append(img);
+        
+        var labelYes = document.createElement('div');
+        labelYes.setAttribute('class', 'swiper-label swiper-label-yes');
+        labelYes.innerHTML = 'YES';
+        container.append(labelYes);
+        
+        var labelNo = document.createElement('div');
+        labelNo.setAttribute('class', 'swiper-label swiper-label-no');
+        labelNo.innerHTML = 'NO';
+        container.append(labelNo);
 
         var footer = document.createElement('div');
         footer.setAttribute('class', 'swiper-footer');
@@ -132,12 +144,35 @@ Swiper = function (trials, scorerObj) {
 
     var swipeYes = function () {
         container.classList.add('flash-green');
-        setTimeout(showNext, 650);
+        var label = $('.swiper-label-yes');
+        label.show({'duration':100, 'easing': 'linear'});
+        
+        setTimeout(function() {
+            label.hide();
+            showNext();
+        }, 1000);
     };
 
     var swipeNo = function () {
         container.classList.add('flash-red');
-        setTimeout(showNext, 650);
+        var label = $('.swiper-label-no');
+        label.show({'duration':100, 'easing': 'linear'});
+        
+        setTimeout(function() {
+            label.hide();
+            showNext();
+        }, 1000);
+    };
+    
+    var displayOverlay = function () {
+        var overlayImg = $('.overlay img');
+        var overlay = $('.overlay');
+        overlayImg.attr('src', 'img/overlays/overlay_preference.png');
+        overlay.show();
+        
+        overlay.on('click', function (e) {
+            $(this).hide();
+        });
     };
 
     init(trials, scorerObj);

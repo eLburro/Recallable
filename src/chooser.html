@@ -20,17 +20,44 @@
 
     <body>
 
-        <div class="container mobile-form">
-            <h1>Mood</h1>
+        <div>
+            <form  id="zone-text-container" class="form-horizontal" action="result.html" method="post">
+                <div class="form-group">
+                    <div id="bar">
+                        <span class="bar-text-left">comfortable</span>
+                        <img src="img/moods/bar/A1.png" alt="" />
+                        <span class="bar-text-right">new</span>
+                    </div>
+                    
+                    <div class="zone-container">
+                        <h5>Try something</h5>
+                        <span id="zone-text">as usual</span>
+
+                        <button type="submit" class="btn btn-block zone-button">open</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        
+
         <div id="chooser">
             <div id="drop-zone">
                 <div id="pin"></div>
+                <img id="moodImg" src="img/moods/A.png" alt="" style="width: 100%;" border="0" usemap="#moodMap" />
             </div>
         </div>
 
+        <map name="moodMap" id="moodMap">
+            <area id="A" alt="" title="" shape="poly" coords="1,489,155,521,299,593,416,707,486,845,512,999,2,999" />
+            <area id="F" alt="" title="" shape="poly" coords="1001,999,512,996,487,849,954,695,991,849" />
+            <area id="E" alt="" title="" shape="poly" coords="953,693,488,847,415,705,809,416,886,540" />
+            <area id="D" alt="" title="" shape="poly" coords="809,414,415,703,300,591,587,194,701,290" />
+            <area id="C" alt="" title="" shape="poly" coords="586,192,298,591,157,520,310,54,450,109" />
+            <area id="B" alt="" title="" shape="poly" coords="308,54,155,519,0,487,2,6,161,17" />
+        </map>
 
+        <div class="overlay"><img src="" alt="" /></div>
+        
+        
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="libs/jquery/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -42,6 +69,36 @@
             $(function () {
                 var chooser = new Chooser();
             });
+
+            window.onload = function () {
+                var ImageMap = function (map, img) {
+                    var n,
+                            areas = map.getElementsByTagName('area'),
+                            len = areas.length,
+                            coords = [],
+                            previousWidth = 1007;
+                    for (n = 0; n < len; n++) {
+                        coords[n] = areas[n].coords.split(',');
+                    }
+                    this.resize = function () {
+                        var n, m, clen,
+                                x = img.offsetWidth / previousWidth;
+                        for (n = 0; n < len; n++) {
+                            clen = coords[n].length;
+                            for (m = 0; m < clen; m++) {
+                                coords[n][m] *= x;
+                            }
+                            areas[n].coords = coords[n].join(',');
+                        }
+                        previousWidth = document.body.clientWidth;
+                        return true;
+                    };
+                    window.onresize = this.resize;
+                },
+                        imageMap = new ImageMap(document.getElementById('moodMap'), document.getElementById('moodImg'));
+                imageMap.resize();
+                return;
+            }
         </script>
 
     </body>
