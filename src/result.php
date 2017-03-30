@@ -6,7 +6,7 @@
         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="mobile-web-app-capable" content="yes">
-        <title>Recallable - Preferences</title>
+        <title>Recallable - Suggestions</title>
 
         <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -20,35 +20,19 @@
 
     <body>
 
-        <div class="container mobile-form">
-            <h1 style="float: left;">Preferences</h1>
-            <button type="button" class="btn btn-warning btn-sm skip">Skip</button>
-        </div>    
-
-        <div id="swiper"></div>
-
-        <div class="overlay"><img src="" alt="" /></div>
+        <div id="result-container"></div>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="libs/jquery/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-        <script src="libs/hammer/hammer.min.js"></script>
-        <script src="libs/hammer/hammer-time.min.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/preferences/Swiper.js"></script>
-        <script src="js/preferences/Scorer.js"></script>
+        <script src="js/suggestions/Suggestion.js"></script>
 
         <script>
             $(function () {
-                var scorer = new Scorer();
-                
-                // skip button
-                $('.skip').on('click', function (e) {
-                   window.location.href = "http://recallable.der-esel.ch/home.php?skip=1"; 
-                });
+                var result = new Suggestion();
             });
         </script>
-
     </body>
 </html>

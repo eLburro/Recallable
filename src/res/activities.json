@@ -2,20 +2,85 @@
 	"activities": [
 		{
 			"id": 1,
-			"name": "Activity 2 Name",
-			"desc": "Jump from 10m into a swimming pool",
-			"tags": "competition|shopping",
+			"name": "grocery run",
+			"desc": "find a supermarket,make a list of what you wanna buy and divide it into two. Who gets first all their stuff, no self picking up",
+			"tags": "",
 			"duration": 0,
 			"weather": 0
 			
 		},
 		{
 			"id": 2,
-			"name": "Activity 2 Name",
-			"desc": "Stop 5mins for a street music show",
-			"tags": "competition",
+			"name": "Park walk",
+			"desc": "walk by the lake, park, talk about trees and their stories or clouds, time for thoughts",
+			"tags": "",
+			"duration": 0,
+			"weather": 1
+		},
+	{
+			"id": 3,
+			"name": "Unexpected order",
+			"desc": "Go into a restaurant or caffe, don't order something,just ask waiters to random cook something for you as surprise",
+			"tags": "",
+			"duration": 0,
+			"weather": 0
+		},
+	{
+			"id": 4,
+			"name": "Picnic in the forest",
+			"desc": "Picnic in the forest/lake, Eatings, fun games, love stories",
+			"tags": "",
 			"duration": 1,
+			"weather": 1
+		},
+	{
+			"id": 5,
+			"name": "City run",
+			"desc": "city run with games, public place, try to answer partner's question with help of others. Introduce your partner to another person. Get to know each other better.",
+			"tags": "",
+			"duration": 1,
+			"weather": 1
+		},
+		{
+			"id": 6,
+			"name": "Romantic dinner",
+			"desc": "Dinner, partner picks outfit, jewelry etc, everything is allowed, share each dish and talk as food experts to describe the feeling, afterwards go for a drink, all the time let your partner talk for you",
+			"tags": "",
+			"duration": 1,
+			"weather": 1
+		},
+	{
+			"id": 7,
+			"name": "Go hiking",
+			"desc": "hiking, topics to talk about, goal of the day and relaxing evening activity, ideas for pictures",
+			"tags": "",
+			"duration": 2,
+			"weather": 1
+		},
+	{
+			"id": 8,
+			"name": "Unexpected destination",
+			"desc": "call a random contact from your city and ask them where they would like to go if they had a free day and want to see something nice. Go there at the next day. Create a picture story together, silly picture movie",
+			"tags": "",
+			"duration": 2,
+			"weather": 0
+		},
+	{
+			"id": 9,
+			"name": "Wellness at home",
+			"desc": "Wellness at home, massages, music, challenge for a dinner, different approach for all the common stuff. Strip movie, make a fancy bad ass cocktail, who makes a better looking tasting one.",
+			"tags": "",
+			"duration": 2,
+			"weather": 0
+		},
+	{
+			"id": 10,
+			"name": "Bike tour",
+			"desc": "get bikes or rent some, skates, go in the least favorite direction and stay away from auto routes and big streets. Drive together and slowly. Stop for kisses",
+			"tags": "",
+			"duration": 2,
 			"weather": 1
 		}
 	]
 }
+	

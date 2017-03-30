@@ -150,6 +150,11 @@ form {
     left: 70px;
 }
 
+.skip {
+    margin-top: 25px;
+    margin-left: 75px;
+}
+
 /*** CHOOSER ***/
 
 #chooser {
@@ -172,7 +177,7 @@ form {
     pointer-events: none;
 }
 
-body {
+.bgbody {
     background-color: #C6DFAB;
 }
 
@@ -346,4 +351,35 @@ body.zoneF #zone-text-container .zone-button{
 
 .memories img {
     width: 100%;
+}
+
+/*** SUGGESTIONS ***/
+.result-box {
+    position: relative;
+}
+
+.info-box {
+    position: absolute;
+    bottom: 5px;
+    left: 4px;
+    right: 4px;
+    background-color: rgba(200,200,200, 0.8);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 80px;
+    padding: 10px;
+}
+
+.info-tags {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.info-tags li {
+    float: left;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0 10px;
+    margin: 0 5px;
 }

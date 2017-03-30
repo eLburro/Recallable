@@ -30,8 +30,8 @@ if (!isset($_SESSION['userName'])) {
 
         <div class="container mobile-form">
             <form>
-                <div class="profile">
-                    <?php if ($_SESSION['userId'] == 9) { ?>
+                <?php if ($_SESSION['userId'] == 9) { ?>
+                    <div class="profile">
                         <div style="display:inline-block; margin-right: 30px; position: relative; z-index: 5;">
                             <img class="profile-img" src="img/profile_jeff.jpg" width="100" alt="" />
                             <h3><?php echo $_SESSION['userName']; ?></h3>
@@ -42,13 +42,14 @@ if (!isset($_SESSION['userName'])) {
                             <h3>Amy</h3>
                         </div>
 
-                    <div class="spanner"><span><img src="img/icons/heart_profile.png" width="30" /></span></div>
+                        <div class="spanner"><span><img src="img/icons/heart_profile.png" width="30" /></span></div>
 
                     <?php } else { ?>
-                        <img src="img/profile_ramon.jpe" width="100" alt="" />
-                        <h3><?php echo $_SESSION['userName']; ?></h3>
-                    <?php } ?>
-                </div>
+                        <div class="profile" style="margin-bottom: 10px;">
+                            <img class="profile-img" src="img/profile_ramon.jpe" width="100" alt="" />
+                            <h3><?php echo $_SESSION['userName']; ?></h3>
+                        <?php } ?>
+                    </div>
             </form>
 
             <?php if ($_SESSION['userId'] == 8) { ?>
@@ -61,7 +62,11 @@ if (!isset($_SESSION['userName'])) {
 
             <form class="form-horizontal" action="preferences.html" method="post">
                 <div class="form-group">
-                    <button type="submit" class="btn btn-danger btn-block">Preference Test</button>
+                    <?php if (isset($_GET['skip']) && $_GET['skip'] == '1') { ?>
+                        <button type="submit" class="btn btn-danger btn-block">Continue Preference Test</button>
+                    <?php } else { ?>
+                        <button type="submit" class="btn btn-danger btn-block">Start Preference Test</button>
+                    <?php } ?>
                 </div>
             </form>
 
@@ -74,7 +79,7 @@ if (!isset($_SESSION['userName'])) {
                     <?php } ?>
                 </div>
             </form>
-            
+
             <form class="form-horizontal" action="memories.html" method="post">
                 <div class="form-group">
                     <?php if ($_SESSION['userId'] == 8) { ?>
