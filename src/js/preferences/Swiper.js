@@ -28,7 +28,7 @@ Swiper = function (trials, scorerObj) {
         setCurrentTrial();
         displayImg();
         
-        //displayOverlay();
+        displayOverlay();
     };
 
     var attachEvents = function () {

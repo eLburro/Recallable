@@ -1,0 +1,32 @@
+{	
+	"activities": [
+		{
+			"id": 1,
+			"name": "grocery run",
+			"desc": "find a supermarket,make a list of what you wanna buy and divide it into two. Who gets first all their stuff, no self picking up",
+			"tags": "",
+			"duration": 0,
+			"weather": 0
+			
+		},
+	
+	{
+			"id": 5,
+			"name": "City run",
+			"desc": "city run with games, public place, try to answer partner's question with help of others. Introduce your partner to another person. Get to know each other better.",
+			"tags": "",
+			"duration": 1,
+			"weather": 1
+		},
+		
+	{
+			"id": 8,
+			"name": "Unexpected destination",
+			"desc": "call a random contact from your city and ask them where they would like to go if they had a free day and want to see something nice. Go there at the next day. Create a picture story together, silly picture movie",
+			"tags": "",
+			"duration": 2,
+			"weather": 1
+		}
+	]
+}
+	

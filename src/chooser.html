@@ -33,7 +33,7 @@
                         <h5>Try something</h5>
                         <span id="zone-text">as usual</span>
 
-                        <button type="submit" class="btn btn-block zone-button">open</button>
+                        <button id="open-btn" type="button" class="btn btn-block zone-button">open</button>
                     </div>
                 </div>
             </form>
@@ -68,6 +68,10 @@
         <script>
             $(function () {
                 var chooser = new Chooser();
+                
+                $('#open-btn').on('click', function (e) {
+                    window.location.href = 'http://recallable.der-esel.ch/result.php'; 
+                });
             });
 
             window.onload = function () {

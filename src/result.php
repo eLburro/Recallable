@@ -21,6 +21,14 @@
     <body>
 
         <div id="result-container"></div>
+        
+        <div class="container mobile-form">
+            <form class="form-horizontal" action="chooser.html" method="post">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger btn-block">Reselect</button>
+                </div>
+            </form>
+       </div>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="libs/jquery/jquery.min.js"></script>

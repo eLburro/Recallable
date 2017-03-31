@@ -363,11 +363,13 @@ body.zoneF #zone-text-container .zone-button{
     bottom: 5px;
     left: 4px;
     right: 4px;
-    background-color: rgba(200,200,200, 0.8);
+    background-color: rgba(0,0,0, 0.4);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    height: 80px;
+    height: 70px;
     padding: 10px;
+    color: #FFFFFF;
+    font-size: 1.1em;
 }
 
 .info-tags {
@@ -378,8 +380,36 @@ body.zoneF #zone-text-container .zone-button{
 
 .info-tags li {
     float: left;
-    border: 1px solid black;
+    border: 1px solid #FFFFFF;
     border-radius: 10px;
     padding: 0 10px;
-    margin: 0 5px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.info-desc {
+    display: none;
+    padding: 10px;
+}
+
+.info-desc h3 {
+    margin-top: 0;
+}
+
+.info-box.open {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.info-desc .book-btn {
+    width: 120px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.info-box .info-heart {
+    width: 40px;
+    position: absolute;
+    top: 20px;
+    right: 25px;
 }

@@ -30,7 +30,7 @@ Chooser = function () {
         zoneBounds.h = newWidth - 44;
 
         attachEvents();
-        //displayOverlay();
+        displayOverlay();
     };
 
     var attachEvents = function () {
@@ -44,7 +44,7 @@ Chooser = function () {
 
             pin.addEventListener('mousemove', dragIt, false);
 
-            window.addEventListener('mouseup', function () {
+            dropZone.addEventListener('mouseup', function () {
                 pin.removeEventListener('mousemove', dragIt, false);
             }, false);
 
@@ -61,17 +61,12 @@ Chooser = function () {
 
             pin.addEventListener('touchmove', swipeIt, false);
 
-            window.addEventListener('touchend', function (e) {
+            dropZone.addEventListener('touchend', function (e) {
                 e.preventDefault();
                 pin.removeEventListener('touchmove', swipeIt, false);
             }, false);
 
         }, false);
-
-        moodMap.onclick = function (e) {
-            var zone = e.target.id;
-            //moodImg.setAttribute('src', 'img/moods/' + zone + '.png');
-        };
     };
 
     var dragIt = function (e) {
